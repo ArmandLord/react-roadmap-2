@@ -9,6 +9,8 @@ import {
 import { routes } from "./routes";
 
 const Navigation = () => {
+  console.log(routes);
+
   return (
     <Suspense fallback={<h1>Loading...</h1>}>
       <BrowserRouter>
