@@ -1,6 +1,10 @@
 import ProductCart from "../components/ProductCart";
 
-const product = [];
+const product = {
+  id: "1",
+  title: "Wolf",
+  img: "https://picsum.photos/200",
+};
 
 const ShoppingPage = () => {
   return (
@@ -12,7 +16,7 @@ const ShoppingPage = () => {
           flexWrap: "wrap",
         }}
       >
-        <ProductCart />
+        <ProductCart product={product} />
       </div>
     </div>
   );
