@@ -7,7 +7,7 @@ import ProductCart, {
 const product = {
   id: "1",
   title: "Wolf",
-  img: "https://picsum.photos/200",
+  img: "https://picsum.photos/200/300",
 };
 
 const ShoppingPage = () => {
