@@ -3,11 +3,12 @@ import reducer from "./CharacterReducer";
 import CharacterContext from "./CharacterContext";
 import axios from "axios";
 import { GET_CHARACTERS, GET_CHARACTER } from "../Types";
+import { Character } from "../../interfaces/index";
 
 const CharacterState = ({ children }: PropsWithChildren) => {
   // agregar la interfaz de los arreglos
   interface CharacterState {
-    characters: [];
+    characters: Character[];
     selectedCharacter: {};
   }
 
@@ -22,6 +23,7 @@ const CharacterState = ({ children }: PropsWithChildren) => {
     const { data } = await axios.get(
       "https://rickandmortyapi.com/api/character"
     );
+
     dispatch({
       type: GET_CHARACTERS,
       payload: data.results,
@@ -36,16 +38,15 @@ const CharacterState = ({ children }: PropsWithChildren) => {
       payload: data,
     });
   };
-  getProfile(1);
+
+  const contextData = {
+    state,
+    getCharacters,
+    getProfile,
+  };
 
   return (
-    <CharacterContext.Provider
-      value={{
-        state,
-        getCharacters,
-        getProfile,
-      }}
-    >
+    <CharacterContext.Provider value={contextData}>
       {children}
     </CharacterContext.Provider>
   );

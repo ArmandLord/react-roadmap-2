@@ -1,5 +1,11 @@
 import { createContext } from "react";
 
-const CharacterContext = createContext({});
+interface CharacterContext {
+  state: any;
+  getCharacters: () => void;
+  getProfile: (id: number) => void;
+}
+
+const CharacterContext = createContext({} as CharacterContext);
 
 export default CharacterContext;

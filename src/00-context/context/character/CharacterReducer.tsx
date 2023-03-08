@@ -1,14 +1,21 @@
 import { GET_CHARACTER, GET_CHARACTERS } from "../Types";
 
-const CharacterReducer = (type: string, payload: [] | {}) => {
+interface PropsReducer {
+  type: string;
+  payload: any;
+}
+
+const CharacterReducer = (state: any, { payload, type }: PropsReducer) => {
   switch (type) {
     case GET_CHARACTERS:
       return {
+        ...state,
         characters: payload,
       };
     case GET_CHARACTER:
       return {
-        selectedCharacter: payload,
+        ...state,
+        character: payload,
       };
     default:
       return payload;
