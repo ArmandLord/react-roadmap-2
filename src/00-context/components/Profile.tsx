@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 import CharacterContext from "../context/character/CharacterContext";
-import { Character } from "../interfaces/index";
 
 const Profile = () => {
   const { state, getProfile } = useContext(CharacterContext);
