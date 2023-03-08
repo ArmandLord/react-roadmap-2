@@ -18,7 +18,7 @@ const CharacterReducer = (state: any, { payload, type }: PropsReducer) => {
         character: payload,
       };
     default:
-      return payload;
+      return state;
   }
 };
 
