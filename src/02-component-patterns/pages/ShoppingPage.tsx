@@ -1,8 +1,4 @@
-import ProductCart, {
-  ProductImage,
-  ProductButtons,
-  ProductTitle,
-} from "../components/ProductCart";
+import ProductCart from "../components/ProductCart";
 
 const product = {
   id: "1",
@@ -21,14 +17,9 @@ const ShoppingPage = () => {
         }}
       >
         <ProductCart product={product}>
-          <ProductImage />
-          <ProductTitle title="prueba" />
-          <ProductButtons
-            counter={0}
-            increaseBy={function (value: number): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
+          <ProductCart.Image />
+          <ProductCart.Title />
+          <ProductCart.Buttons />
         </ProductCart>
       </div>
     </div>
