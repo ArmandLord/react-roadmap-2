@@ -18,8 +18,12 @@ const ShoppingPage = () => {
         }}
       >
         <ProductCart className="bg-dark" product={product}>
-          <ProductCart.Image />
-          <ProductCart.Title />
+          <ProductCart.Image
+            customStyles={{
+              borderRadius: "50%",
+            }}
+          />
+          <ProductCart.Title className="text-white" />
           <ProductCart.Buttons />
         </ProductCart>
       </div>
