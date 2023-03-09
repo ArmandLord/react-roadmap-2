@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Product } from "../interfaces/interfaces";
+import { ProductHook } from "../interfaces/interfaces";
 
-export const useProduct = (): Product => {
+export const useProduct = (): ProductHook => {
   const [counter, setCounter] = useState(0);
 
   const increaseBy = (value: number) => {

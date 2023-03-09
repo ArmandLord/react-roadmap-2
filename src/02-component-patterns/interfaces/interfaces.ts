@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-export interface Product {
+export interface ProductHook {
   counter: number;
   increaseBy: (value: number) => void;
 }
