@@ -6,7 +6,7 @@ import noImage from "../assets/no-image.jpg";
 export const ProductImage = ({
   customStyles,
 }: {
-  customStyles: CSSProperties;
+  customStyles?: CSSProperties;
 }) => {
   const { product } = useContext(ProductContext);
 
