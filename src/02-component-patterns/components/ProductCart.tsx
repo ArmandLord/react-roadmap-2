@@ -1,18 +1,8 @@
 import styles from "../styles/styles.module.css";
 import noImage from "../assets/no-image.jpg";
 import { useProduct } from "../hooks/useProduct";
-import { ReactElement, createContext, useContext } from "react";
-
-interface Props {
-  product: Product;
-  children: ReactElement | ReactElement[];
-}
-
-interface Product {
-  id: string;
-  title: string;
-  img?: string;
-}
+import { createContext, useContext } from "react";
+import { Props, ProductContextProps } from "../interfaces/interfaces";
 
 export const ProductImage = () => {
   const { product } = useContext(ProductContext);
@@ -25,19 +15,13 @@ export const ProductImage = () => {
     />
   );
 };
-interface Title {
-  title: string;
-}
+
 export const ProductTitle = () => {
   const { product } = useContext(ProductContext);
   console.log(product);
 
   return <span className={styles.productDescription}>{product.title}</span>;
 };
-interface Buttons {
-  counter: number;
-  increaseBy: (value: number) => void;
-}
 export const ProductButtons = () => {
   const { increaseBy, counter } = useContext(ProductContext);
   return (
@@ -53,11 +37,6 @@ export const ProductButtons = () => {
   );
 };
 
-interface ProductContextProps {
-  counter: number;
-  increaseBy: (value: number) => void;
-  product: Product;
-}
 export const ProductContext = createContext({} as ProductContextProps);
 
 const ProductCart = ({ product, children }: Props) => {
@@ -73,13 +52,7 @@ const ProductCart = ({ product, children }: Props) => {
         product,
       }}
     >
-      <div className={styles.productCard}>
-        {/* <img className={styles.productImg} src="./coffee-mug.png" alt="coffee" /> */}
-        {/* <ProductImage img="https://picsum.photos/200" />
-        <ProductTitle title={product.title} />
-        <ProductButtons counter={counter} increaseBy={increaseBy} /> */}
-        {children}
-      </div>
+      <div className={styles.productCard}>{children}</div>
     </Provider>
   );
 };
