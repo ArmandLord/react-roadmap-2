@@ -8,7 +8,7 @@ import { ProductButtons } from "./ProductButtons";
 
 export const ProductContext = createContext({} as ProductContextProps);
 
-const ProductCart = ({ product, children }: Props) => {
+const ProductCart = ({ product, children, className }: Props) => {
   const { counter, increaseBy } = useProduct();
 
   const { Provider } = ProductContext;
@@ -21,7 +21,7 @@ const ProductCart = ({ product, children }: Props) => {
         product,
       }}
     >
-      <div className={styles.productCard}>{children}</div>
+      <div className={`${styles.productCard} ${className}`}>{children}</div>
     </Provider>
   );
 };

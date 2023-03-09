@@ -8,6 +8,7 @@ export interface ProductHook {
 export interface Props {
   product: Product;
   children: ReactElement | ReactElement[];
+  className: string;
 }
 
 export interface Product {

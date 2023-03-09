@@ -1,4 +1,5 @@
 import ProductCart from "../components/ProductCart";
+import "../styles/custom-styles.css";
 
 const product = {
   id: "1",
@@ -16,7 +17,7 @@ const ShoppingPage = () => {
           flexWrap: "wrap",
         }}
       >
-        <ProductCart product={product}>
+        <ProductCart className="bg-dark" product={product}>
           <ProductCart.Image />
           <ProductCart.Title />
           <ProductCart.Buttons />
