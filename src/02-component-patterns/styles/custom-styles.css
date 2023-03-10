@@ -6,3 +6,9 @@
   color: #292929;
   font-size: 24px;
 }
+
+.shopping-cart {
+  position: fixed;
+  top: 0;
+  right: 10px;
+}

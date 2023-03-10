@@ -9,6 +9,7 @@ export interface Props {
   product: Product;
   children: ReactElement | ReactElement[];
   className: string;
+  customStyles?: React.CSSProperties;
 }
 
 export interface Product {
