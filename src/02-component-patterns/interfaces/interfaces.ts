@@ -5,11 +5,17 @@ export interface ProductHook {
   increaseBy: (value: number) => void;
 }
 
+export interface OnChangesArgs {
+  product: Product;
+  count: number;
+}
+
 export interface Props {
   product: Product;
   children: ReactElement | ReactElement[];
   className: string;
   customStyles?: React.CSSProperties;
+  onChange?: (args: OnChangesArgs) => void;
 }
 
 export interface Product {

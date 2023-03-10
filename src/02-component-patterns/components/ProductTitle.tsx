@@ -8,7 +8,6 @@ interface PorpsClassName {
 
 export const ProductTitle = ({ className }: PorpsClassName) => {
   const { product } = useContext(ProductContext);
-  console.log(product);
 
   return (
     <span className={`${styles.productDescription} ${className}`}>

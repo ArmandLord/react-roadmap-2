@@ -8,8 +8,14 @@ import { ProductButtons } from "./ProductButtons";
 
 export const ProductContext = createContext({} as ProductContextProps);
 
-const ProductCart = ({ product, children, className, customStyles }: Props) => {
-  const { counter, increaseBy } = useProduct();
+const ProductCart = ({
+  product,
+  children,
+  className,
+  customStyles,
+  onChange,
+}: Props) => {
+  const { counter, increaseBy } = useProduct({ product, onChange });
 
   const { Provider } = ProductContext;
   // customHook 🚨

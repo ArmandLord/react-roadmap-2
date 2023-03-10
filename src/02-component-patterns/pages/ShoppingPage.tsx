@@ -1,7 +1,7 @@
 import ProductCart from "../components/ProductCart";
 import "../styles/custom-styles.css";
 import { useState } from "react";
-import { Product } from "../interfaces/interfaces";
+import { OnChangesArgs, Product } from "../interfaces/interfaces";
 
 const products = [
   {
@@ -21,9 +21,20 @@ export interface ProductInCart extends Product {
 }
 
 const ShoppingPage = () => {
-  const [shopping, setShopping] = useState<{ [key: string]: ProductInCart }>(
-    {}
-  );
+  const [shoppingCart, setShoppingCart] = useState<{
+    [key: string]: ProductInCart;
+  }>({});
+
+  const onProductCartChange = ({
+    count,
+    product,
+  }: {
+    count: number;
+    product: Product;
+  }) => {
+    console.log("onProductCartChange", product, count);
+  };
+
   return (
     <div>
       <div
@@ -34,7 +45,12 @@ const ShoppingPage = () => {
         }}
       >
         {products.map((product) => (
-          <ProductCart key={product.id} className="bg-dark" product={product}>
+          <ProductCart
+            key={product.id}
+            onChange={onProductCartChange}
+            className="bg-dark"
+            product={product}
+          >
             <ProductCart.Image
               customStyles={{
                 borderRadius: "50%",
