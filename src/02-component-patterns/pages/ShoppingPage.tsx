@@ -25,6 +25,7 @@ const ShoppingPage = () => {
     [key: string]: ProductInCart;
   }>({});
 
+  // Creamos una funcion que actualiza el estado del carrito
   const onProductCartChange = ({
     count,
     product,
@@ -32,8 +33,18 @@ const ShoppingPage = () => {
     count: number;
     product: Product;
   }) => {
+    // actualizamos el estado, obteniendo el estado anterior
+    // y agregando el key de forma computada
+    setShoppingCart((prev) => {
+      return {
+        ...prev,
+        [product.id]: { ...product, count },
+      };
+    });
     console.log("onProductCartChange", product, count);
   };
+  const a = Object.values(shoppingCart);
+  console.log(a);
 
   return (
     <div>
@@ -95,6 +106,11 @@ const ShoppingPage = () => {
           <ProductCart.Buttons />
         </ProductCart>
       </div>
+      <pre>
+        {a.map((a) => (
+          <h1>{a.count}</h1>
+        ))}
+      </pre>
     </div>
   );
 };
