@@ -36,12 +36,18 @@ const ShoppingPage = () => {
     // actualizamos el estado, obteniendo el estado anterior
     // y agregando el key de forma computada
     setShoppingCart((prev) => {
+      // De esta forma podemos 'eliminar' una propiedad
+      // de un objeto sin utilizar el operador delete
+      if (count === 0) {
+        const { [product.id]: toDelete, ...rest } = prev;
+        return rest;
+      }
+
       return {
         ...prev,
         [product.id]: { ...product, count },
       };
     });
-    console.log("onProductCartChange", product, count);
   };
   const a = Object.values(shoppingCart);
   console.log(a);
@@ -106,11 +112,11 @@ const ShoppingPage = () => {
           <ProductCart.Buttons />
         </ProductCart>
       </div>
-      <pre>
+      {/* <pre>
         {a.map((a) => (
           <h1>{a.count}</h1>
         ))}
-      </pre>
+      </pre> */}
     </div>
   );
 };
