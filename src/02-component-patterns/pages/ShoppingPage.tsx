@@ -67,6 +67,7 @@ const ShoppingPage = () => {
             onChange={onProductCartChange}
             className="bg-dark"
             product={product}
+            value={shoppingCart[product.id]?.count || 0}
           >
             <ProductCart.Image
               customStyles={{
@@ -84,6 +85,7 @@ const ShoppingPage = () => {
             key={product.id}
             className="bg-dark"
             product={product}
+            onChange={onProductCartChange}
             // con la propiedad value podemos controlar el estado del componente
             value={product.count}
             customStyles={{
