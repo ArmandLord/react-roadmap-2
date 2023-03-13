@@ -49,8 +49,8 @@ const ShoppingPage = () => {
       };
     });
   };
-  const a = Object.values(shoppingCart);
-  console.log(a);
+  const cartMap = Object.values(shoppingCart);
+  console.log(cartMap);
 
   return (
     <div>
@@ -79,44 +79,25 @@ const ShoppingPage = () => {
         ))}
       </div>
       <div className="shopping-cart">
-        <ProductCart
-          key={products[0].id}
-          className="bg-dark"
-          product={products[0]}
-          customStyles={{
-            width: "100px",
-          }}
-        >
-          <ProductCart.Image
+        {cartMap?.map((product) => (
+          <ProductCart
+            key={product.id}
+            className="bg-dark"
+            product={product}
             customStyles={{
-              borderRadius: "50%",
+              width: "100px",
             }}
-          />
-          {/* <ProductCart.Title className="text-white" /> */}
-          <ProductCart.Buttons />
-        </ProductCart>
-        <ProductCart
-          key={products[1].id}
-          className="bg-dark"
-          product={products[1]}
-          customStyles={{
-            width: "100px",
-          }}
-        >
-          <ProductCart.Image
-            customStyles={{
-              borderRadius: "50%",
-            }}
-          />
-          {/* <ProductCart.Title className="text-white" /> */}
-          <ProductCart.Buttons />
-        </ProductCart>
-      </div>
-      {/* <pre>
-        {a.map((a) => (
-          <h1>{a.count}</h1>
+          >
+            <ProductCart.Image
+              customStyles={{
+                borderRadius: "50%",
+              }}
+            />
+            {/* <ProductCart.Title className="text-white" /> */}
+            <ProductCart.Buttons />
+          </ProductCart>
         ))}
-      </pre> */}
+      </div>
     </div>
   );
 };

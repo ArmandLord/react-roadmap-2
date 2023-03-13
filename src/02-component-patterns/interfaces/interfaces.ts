@@ -22,6 +22,7 @@ export interface Product {
   id: string;
   title: string;
   img?: string;
+  count?: number;
 }
 
 export interface ProductContextProps {
