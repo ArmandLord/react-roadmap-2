@@ -84,6 +84,7 @@ const ShoppingPage = () => {
             key={product.id}
             className="bg-dark"
             product={product}
+            // con la propiedad value podemos controlar el estado del componente
             value={product.count}
             customStyles={{
               width: "100px",
