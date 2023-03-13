@@ -84,6 +84,7 @@ const ShoppingPage = () => {
             key={product.id}
             className="bg-dark"
             product={product}
+            value={product.count}
             customStyles={{
               width: "100px",
             }}

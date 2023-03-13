@@ -16,6 +16,7 @@ export interface Props {
   className: string;
   customStyles?: React.CSSProperties;
   onChange?: (args: OnChangesArgs) => void;
+  value?: number;
 }
 
 export interface Product {

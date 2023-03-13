@@ -14,8 +14,9 @@ const ProductCart = ({
   className,
   customStyles,
   onChange,
+  value,
 }: Props) => {
-  const { counter, increaseBy } = useProduct({ product, onChange });
+  const { counter, increaseBy } = useProduct({ product, onChange, value });
 
   const { Provider } = ProductContext;
   // customHook 🚨
