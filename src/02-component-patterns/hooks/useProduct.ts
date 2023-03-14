@@ -29,8 +29,10 @@ export const useProduct = ({
       return onChange({ product, count: value });
     }
     const newCounter = Math.max(counter + value, 0);
-
-    setCounter(newCounter);
+    console.log({ newCounter });
+    if (!(newCounter === initialValues?.maxCount)) {
+      setCounter(newCounter);
+    }
     onChange && onChange({ product, count: newCounter });
   };
 
