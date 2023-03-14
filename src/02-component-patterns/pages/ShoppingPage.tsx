@@ -1,6 +1,6 @@
 import ProductCart from "../components/ProductCart";
 import "../styles/custom-styles.css";
-import { OnChangesArgs, Product } from "../interfaces/interfaces";
+import { Product } from "../interfaces/interfaces";
 import { products } from "../data/products";
 import { useShoppingCart } from "../hooks/useChoppingCart";
 
@@ -10,7 +10,6 @@ export interface ProductInCart extends Product {
 
 const ShoppingPage = () => {
   const { cartMap, shoppingCart, onProductCartChange } = useShoppingCart();
-  // console.log("🍆", aaa);
 
   return (
     <div>

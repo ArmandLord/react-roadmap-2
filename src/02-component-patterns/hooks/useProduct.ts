@@ -15,7 +15,6 @@ export const useProduct = ({
   const [counter, setCounter] = useState(value);
 
   const { current } = useRef(!!onChange);
-  console.log({ current });
 
   const increaseBy = (value: number) => {
     if (current && onChange) {
