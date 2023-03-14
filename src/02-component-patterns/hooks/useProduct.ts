@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ProductHook, Product, OnChangesArgs } from "../interfaces/interfaces";
 
 interface UseProductProps {
@@ -14,7 +14,13 @@ export const useProduct = ({
 }: UseProductProps): ProductHook => {
   const [counter, setCounter] = useState(value);
 
+  const { current } = useRef(!!onChange);
+  console.log({ current });
+
   const increaseBy = (value: number) => {
+    if (current && onChange) {
+      return onChange({ product, count: value });
+    }
     const newCounter = Math.max(counter + value, 0);
 
     setCounter(newCounter);

@@ -1,56 +1,16 @@
 import ProductCart from "../components/ProductCart";
 import "../styles/custom-styles.css";
-import { useState } from "react";
 import { OnChangesArgs, Product } from "../interfaces/interfaces";
-
-const products = [
-  {
-    id: "1",
-    title: "Wolf",
-    img: "https://picsum.photos/200/200",
-  },
-  {
-    id: "2",
-    title: "Tiger",
-    img: "https://picsum.photos/200/200",
-  },
-];
+import { products } from "../data/products";
+import { useShoppingCart } from "../hooks/useChoppingCart";
 
 export interface ProductInCart extends Product {
   count: number;
 }
 
 const ShoppingPage = () => {
-  const [shoppingCart, setShoppingCart] = useState<{
-    [key: string]: ProductInCart;
-  }>({});
-
-  // Creamos una funcion que actualiza el estado del carrito
-  const onProductCartChange = ({
-    count,
-    product,
-  }: {
-    count: number;
-    product: Product;
-  }) => {
-    // actualizamos el estado, obteniendo el estado anterior
-    // y agregando el key de forma computada
-    setShoppingCart((prev) => {
-      // De esta forma podemos 'eliminar' una propiedad
-      // de un objeto sin utilizar el operador delete
-      if (count === 0) {
-        const { [product.id]: toDelete, ...rest } = prev;
-        return rest;
-      }
-
-      return {
-        ...prev,
-        [product.id]: { ...product, count },
-      };
-    });
-  };
-  const cartMap = Object.values(shoppingCart);
-  console.log(cartMap);
+  const { cartMap, shoppingCart, onProductCartChange } = useShoppingCart();
+  // console.log("🍆", aaa);
 
   return (
     <div>
