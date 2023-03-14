@@ -19,9 +19,10 @@ export const useProduct = ({
   value = 0,
   initialValues,
 }: UseProductProps): ProductHook => {
-  const [counter, setCounter] = useState(initialValues?.count || value);
+  const [counter, setCounter] = useState<number>(initialValues?.count || value);
 
   const { current } = useRef(!!onChange);
+  const isMounted = useRef(false);
 
   const increaseBy = (value: number) => {
     if (current && onChange) {
@@ -34,8 +35,15 @@ export const useProduct = ({
   };
 
   useEffect(() => {
+    isMounted.current = true;
+  }, []);
+
+  useEffect(() => {
+    // ocupamos el isMounted (propiedad useRef) ya que
+    if (isMounted.current) return;
     setCounter(value);
   }, [value]);
+
   return {
     counter,
     increaseBy,
