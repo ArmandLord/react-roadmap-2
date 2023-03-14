@@ -10,6 +10,11 @@ export interface OnChangesArgs {
   count: number;
 }
 
+export interface InitialValue {
+  count?: number;
+  maxCount: number;
+}
+
 export interface Props {
   product: Product;
   children: ReactElement | ReactElement[];
@@ -17,6 +22,7 @@ export interface Props {
   customStyles?: React.CSSProperties;
   onChange?: (args: OnChangesArgs) => void;
   value?: number;
+  initialValues?: InitialValue;
 }
 
 export interface Product {

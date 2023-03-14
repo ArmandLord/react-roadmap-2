@@ -1,18 +1,25 @@
 import { useState, useEffect, useRef } from "react";
-import { ProductHook, Product, OnChangesArgs } from "../interfaces/interfaces";
+import {
+  ProductHook,
+  Product,
+  OnChangesArgs,
+  InitialValue,
+} from "../interfaces/interfaces";
 
 interface UseProductProps {
   product: Product;
   onChange?: (args: OnChangesArgs) => void;
   value?: number;
+  initialValues?: InitialValue;
 }
 
 export const useProduct = ({
   product,
   onChange,
   value = 0,
+  initialValues,
 }: UseProductProps): ProductHook => {
-  const [counter, setCounter] = useState(value);
+  const [counter, setCounter] = useState(initialValues?.count || value);
 
   const { current } = useRef(!!onChange);
 

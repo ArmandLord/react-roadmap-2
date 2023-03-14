@@ -1,7 +1,11 @@
 import styles from "../styles/styles.module.css";
 import { useProduct } from "../hooks/useProduct";
 import { createContext } from "react";
-import { Props, ProductContextProps } from "../interfaces/interfaces";
+import {
+  Props,
+  ProductContextProps,
+  InitialValue,
+} from "../interfaces/interfaces";
 import { ProductImage } from "./ProductImage";
 import { ProductTitle } from "./ProductTitle";
 import { ProductButtons } from "./ProductButtons";
@@ -15,8 +19,14 @@ const ProductCart = ({
   customStyles,
   onChange,
   value,
+  initialValues,
 }: Props) => {
-  const { counter, increaseBy } = useProduct({ product, onChange, value });
+  const { counter, increaseBy } = useProduct({
+    product,
+    onChange,
+    value,
+    initialValues,
+  });
 
   const { Provider } = ProductContext;
   // customHook 🚨

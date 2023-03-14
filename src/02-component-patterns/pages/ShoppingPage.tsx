@@ -10,7 +10,15 @@ const ShoppingPage = () => {
       <h1>Product:</h1>
       <hr />
       <div>
-        <ProductCart key={product.id} className="bg-dark" product={product}>
+        <ProductCart
+          // key={product.id}
+          className="bg-dark"
+          product={product}
+          initialValues={{
+            count: 4,
+            maxCount: 10,
+          }}
+        >
           <ProductCart.Image
             customStyles={{
               borderRadius: "50%",
