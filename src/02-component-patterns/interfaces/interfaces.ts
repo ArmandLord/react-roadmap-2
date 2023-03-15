@@ -17,7 +17,8 @@ export interface InitialValue {
 
 export interface Props {
   product: Product;
-  children: ReactElement | ReactElement[];
+  // children: ReactElement | ReactElement[];
+  children: (message: string) => ReactElement;
   className: string;
   customStyles?: React.CSSProperties;
   onChange?: (args: OnChangesArgs) => void;

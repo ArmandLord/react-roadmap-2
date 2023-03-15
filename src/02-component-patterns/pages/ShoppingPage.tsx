@@ -19,13 +19,18 @@ const ShoppingPage = () => {
             maxCount: 10,
           }}
         >
-          <ProductCart.Image
-            customStyles={{
-              borderRadius: "50%",
-            }}
-          />
-          <ProductCart.Title className="text-white" />
-          <ProductCart.Buttons />
+          {(message) => (
+            <>
+              <h2>{message}</h2>
+              <ProductCart.Image
+                customStyles={{
+                  borderRadius: "50%",
+                }}
+              />
+              <ProductCart.Title className="text-white" />
+              <ProductCart.Buttons />
+            </>
+          )}
         </ProductCart>
       </div>
     </div>

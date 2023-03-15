@@ -42,7 +42,7 @@ const ProductCart = ({
         style={customStyles}
         className={`${styles.productCard} ${className}`}
       >
-        {children}
+        {children("Funciona")}
       </div>
     </Provider>
   );
