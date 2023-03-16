@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ProductInCart } from "../pages/ShoppingPage";
 import { Product } from "../interfaces/interfaces";
+ProductInCart;
 
 export const useShoppingCart = () => {
   const [shoppingCart, setShoppingCart] = useState<{

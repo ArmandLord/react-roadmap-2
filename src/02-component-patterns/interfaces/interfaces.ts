@@ -3,6 +3,7 @@ import { ReactElement } from "react";
 export interface ProductHook {
   counter: number;
   increaseBy: (value: number) => void;
+  maxCount?: number;
 }
 
 export interface OnChangesArgs {
@@ -37,6 +38,7 @@ export interface ProductContextProps {
   counter: number;
   increaseBy: (value: number) => void;
   product: Product;
+  maxCount?: number;
 }
 
 export interface Title {

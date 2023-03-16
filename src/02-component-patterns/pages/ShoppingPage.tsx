@@ -1,6 +1,5 @@
 import ProductCart from "../components/ProductCart";
 import "../styles/custom-styles.css";
-import { Product } from "../interfaces/interfaces";
 import { products } from "../data/products";
 
 const product = products[0];

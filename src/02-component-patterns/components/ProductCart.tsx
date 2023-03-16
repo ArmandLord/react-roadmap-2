@@ -21,7 +21,7 @@ const ProductCart = ({
   value,
   initialValues,
 }: Props) => {
-  const { counter, increaseBy } = useProduct({
+  const { counter, increaseBy, maxCount } = useProduct({
     product,
     onChange,
     value,
@@ -36,6 +36,7 @@ const ProductCart = ({
         counter,
         increaseBy,
         product,
+        maxCount,
       }}
     >
       <div
