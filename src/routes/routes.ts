@@ -3,6 +3,7 @@ import { lazy, LazyExoticComponent } from "react";
 import NoLazyComponent from "../01-lazyload/pages/NoLazyComponent";
 import ShoppingPage from "../02-component-patterns/pages/ShoppingPage";
 import FastCodeExample from "../00-context/FastCodeExample";
+import RegisterPage from "../03-forms/pages/RegisterPage";
 
 type ReactElement = () => JSX.Element;
 
@@ -53,5 +54,11 @@ export const routes: Route[] = [
     path: "shopping",
     Component: ShoppingPage,
     name: "Shopping Page",
+  },
+  {
+    to: "/register",
+    path: "register",
+    Component: RegisterPage,
+    name: "Register Page",
   },
 ];
