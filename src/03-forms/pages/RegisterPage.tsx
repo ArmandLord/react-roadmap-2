@@ -9,13 +9,12 @@ const RegisterPage = () => {
     password: "",
     repeatPassword: "",
   };
-  const { registerData, onChanges } = UseForm(obj);
+  const { registerData, onChanges, reset, isValidEmail } = UseForm(obj);
 
   const { name, email, password, repeatPassword } = registerData;
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e.target);
   };
   // console.table(registerData);
 
@@ -30,14 +29,18 @@ const RegisterPage = () => {
           placeholder="Name:"
           value={name}
           name="name"
+          className={`${name.trim().length <= 0 && "has-error"}`}
         />
+        <span>{name.trim().length <= 0 && "Este campo es necesario"}</span>
         <input
           onChange={onChanges}
           type="email"
           placeholder="Email:"
           value={email}
           name="email"
+          className={`${!isValidEmail(email) && "has-error"}`}
         />
+        <span>{!isValidEmail(email) && "Tiene que ser de tipo email"}</span>
         <input
           onChange={onChanges}
           type="password"
@@ -53,6 +56,7 @@ const RegisterPage = () => {
           name="repeatPassword"
         />
         <button type="submit">Register</button>
+        <button onClick={reset}>Reset</button>
       </form>
     </div>
   );
