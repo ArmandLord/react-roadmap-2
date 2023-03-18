@@ -48,6 +48,11 @@ const RegisterPage = () => {
           value={password}
           name="password"
         />
+
+        {password.trim().length < 6 && password.trim().length > 0 && (
+          <span>La contraseña debe tener mas de 6 caracteres</span>
+        )}
+
         <input
           onChange={onChanges}
           type="password"
@@ -55,6 +60,10 @@ const RegisterPage = () => {
           value={repeatPassword}
           name="repeatPassword"
         />
+        {password !== repeatPassword && (
+          <span>Las contraseñas no coinciden</span>
+        )}
+        <span>{}</span>
         <button type="submit">Register</button>
         <button onClick={reset}>Reset</button>
       </form>
