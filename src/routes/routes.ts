@@ -4,6 +4,7 @@ import NoLazyComponent from "../01-lazyload/pages/NoLazyComponent";
 import ShoppingPage from "../02-component-patterns/pages/ShoppingPage";
 import FastCodeExample from "../00-context/FastCodeExample";
 import RegisterPage from "../03-forms/pages/RegisterPage";
+import FormikPage from "../03-forms/pages/FormikPage";
 
 type ReactElement = () => JSX.Element;
 
@@ -60,5 +61,11 @@ export const routes: Route[] = [
     path: "register",
     Component: RegisterPage,
     name: "Register Page",
+  },
+  {
+    to: "/formik",
+    path: "formik",
+    Component: FormikPage,
+    name: "Formik Page",
   },
 ];
