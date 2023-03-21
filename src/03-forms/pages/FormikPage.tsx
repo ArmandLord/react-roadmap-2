@@ -18,9 +18,9 @@ const FormikPage = () => {
     }
 
     if (!lastName) {
-      errors.firstName = "FirstName is required";
-    } else if (firstName.length > 10) {
-      errors.firstName = "FirstName must be 15 characters or less";
+      errors.lastName = "FirstName is required";
+    } else if (lastName.length > 10) {
+      errors.lastName = "FirstName must be 10 characters or less";
     }
 
     if (!email) {
@@ -32,7 +32,7 @@ const FormikPage = () => {
     return errors;
   };
 
-  const { handleChange, handleSubmit, values } = useFormik({
+  const { handleChange, handleSubmit, values, errors } = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
@@ -56,7 +56,7 @@ const FormikPage = () => {
           onChange={handleChange}
           value={values.firstName}
         />
-        <span>Proporciona un nombre valido</span>
+        {errors.firstName && <span>{errors.firstName}</span>}
         <br />
         <label htmlFor="lastName">Last Name</label>
         <input
@@ -65,7 +65,8 @@ const FormikPage = () => {
           onChange={handleChange}
           value={values.lastName}
         />
-        <span>Proporciona un apellido valido</span>
+        {errors.lastName && <span>{errors.lastName}</span>}
+
         <br />
         <label htmlFor="email">Email</label>
         <input
@@ -74,7 +75,8 @@ const FormikPage = () => {
           onChange={handleChange}
           value={values.email}
         />
-        <span>Proporciona un email valido</span>
+        {errors.email && <span>{errors.email}</span>}
+
         <br />
         <button type="submit">submit</button>
       </form>
