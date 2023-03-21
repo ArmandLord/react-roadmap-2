@@ -7,6 +7,7 @@ import RegisterPage from "../03-forms/pages/RegisterPage";
 import FormikPage from "../03-forms/pages/FormikPage";
 import FormikYupPage from "../03-forms/pages/FormikYupPage";
 import FormikComponents from "../03-forms/pages/FormikComponents";
+import FormikAbastraction from "../03-forms/pages/FormikAbstraction";
 
 type ReactElement = () => JSX.Element;
 
@@ -81,5 +82,11 @@ export const routes: Route[] = [
     path: "formik-components",
     Component: FormikComponents,
     name: "Formik Components Page",
+  },
+  {
+    to: "/formik-abstraction",
+    path: "formik-abstraction",
+    Component: FormikAbastraction,
+    name: "Formik abstraction Page",
   },
 ];
