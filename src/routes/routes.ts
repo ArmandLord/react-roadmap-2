@@ -6,6 +6,7 @@ import FastCodeExample from "../00-context/FastCodeExample";
 import RegisterPage from "../03-forms/pages/RegisterPage";
 import FormikPage from "../03-forms/pages/FormikPage";
 import FormikYupPage from "../03-forms/pages/FormikYupPage";
+import FormikComponents from "../03-forms/pages/FormikComponents";
 
 type ReactElement = () => JSX.Element;
 
@@ -74,5 +75,11 @@ export const routes: Route[] = [
     path: "formik-yup",
     Component: FormikYupPage,
     name: "Formik Yup Page",
+  },
+  {
+    to: "/formik-components",
+    path: "formik-components",
+    Component: FormikComponents,
+    name: "Formik Components Page",
   },
 ];
