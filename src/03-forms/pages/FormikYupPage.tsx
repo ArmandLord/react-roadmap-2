@@ -27,7 +27,9 @@ const FormikYupPage = () => {
         lastName: Yup.string()
           .max(15, "debe ser menor a 16")
           .required("requerido"),
-        email: Yup.string().email("debe ser un email valido"),
+        email: Yup.string()
+          .email("debe ser un email valido")
+          .required("requerido"),
       }),
     });
 
