@@ -1,4 +1,4 @@
-import { FormikErrors, useFormik } from "formik";
+import { useFormik } from "formik";
 import "../styles/styles.css";
 import * as Yup from "yup";
 
@@ -9,15 +9,7 @@ export interface ValuesFormik {
 }
 
 const FormikYupPage = () => {
-  const {
-    handleChange,
-    handleSubmit,
-    handleBlur,
-    getFieldProps,
-    values,
-    errors,
-    touched,
-  } = useFormik({
+  const { handleSubmit, getFieldProps, errors, touched } = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
