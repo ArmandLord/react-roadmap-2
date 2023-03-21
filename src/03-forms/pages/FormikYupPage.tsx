@@ -1,5 +1,6 @@
 import { FormikErrors, useFormik } from "formik";
 import "../styles/styles.css";
+import * as Yup from "yup";
 
 export interface ValuesFormik {
   firstName: string;
@@ -8,30 +9,6 @@ export interface ValuesFormik {
 }
 
 const FormikYupPage = () => {
-  const validate = ({ firstName, lastName, email }: ValuesFormik) => {
-    const errors: FormikErrors<ValuesFormik> = {};
-
-    if (!firstName) {
-      errors.firstName = "FirstName is required";
-    } else if (firstName.length > 15) {
-      errors.firstName = "FirstName must be 15 characters or less";
-    }
-
-    if (!lastName) {
-      errors.lastName = "FirstName is required";
-    } else if (lastName.length > 10) {
-      errors.lastName = "FirstName must be 10 characters or less";
-    }
-
-    if (!email) {
-      errors.email = "Required";
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
-      errors.email = "Invalid email address";
-    }
-
-    return errors;
-  };
-
   const { handleChange, handleSubmit, handleBlur, values, errors, touched } =
     useFormik({
       initialValues: {
@@ -43,8 +20,18 @@ const FormikYupPage = () => {
       onSubmit: (values) => {
         console.log(values);
       },
-      validate,
+      validationSchema: Yup.object({
+        firstName: Yup.string()
+          .max(15, "debe ser menor a 16")
+          .required("requerido"),
+        lastName: Yup.string()
+          .max(15, "debe ser menor a 16")
+          .required("requerido"),
+        email: Yup.string().email("debe ser un email valido"),
+      }),
     });
+
+  console.log(errors);
 
   return (
     <div>
