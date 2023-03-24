@@ -26,7 +26,7 @@ const RegisterFormikPage = () => {
           repeatPassword: "",
         }}
         onSubmit={(values) => {
-          console.log(values);
+          console.log("🫶🏻", values);
           // envio al backend
         }}
         validationSchema={Yup.object({
@@ -37,6 +37,12 @@ const RegisterFormikPage = () => {
           email: Yup.string()
             .email("Debe ser un email valido")
             .required("Este campo es requerido"),
+          password: Yup.string()
+            .min(6, "Debe tener mas de 6 caracteres")
+            .required("Este campo es requerido"),
+          repeatPassword: Yup.string()
+            .required("Este campo es requerido")
+            .oneOf([Yup.ref("password")], "Passwords no coincide"),
         })}
       >
         {(formik) => (
@@ -44,49 +50,20 @@ const RegisterFormikPage = () => {
             <label htmlFor="name">First Name</label>
             <Field name="name" type="text" />
             <ErrorMessage name="name" component={"span"} />
-            {/* <input
-              onChange={onChanges}
-              type="text"
-              placeholder="Name:"
-              value={name}
-              name="name"
-              className={`${name.trim().length <= 0 && "has-error"}`}
-            />
-            <span>{name.trim().length <= 0 && "Este campo es necesario"}</span>
-            <input
-              onChange={onChanges}
-              type="email"
-              placeholder="Email:"
-              value={email}
-              name="email"
-              className={`${!isValidEmail(email) && "has-error"}`}
-            />
-            <span>{!isValidEmail(email) && "Tiene que ser de tipo email"}</span>
-            <input
-              onChange={onChanges}
-              type="password"
-              placeholder="Password:"
-              value={password}
-              name="password"
-            />
-
-            {password.trim().length < 6 && password.trim().length > 0 && (
-              <span>La contraseña debe tener mas de 6 caracteres</span>
-            )}
-
-            <input
-              onChange={onChanges}
-              type="password"
-              placeholder="Repeat Password:"
-              value={repeatPassword}
-              name="repeatPassword"
-            />
-            {password !== repeatPassword && (
-              <span>Las contraseñas no coinciden</span>
-            )}
-            <span>{}</span>
-            <button type="submit">Register</button>
-            <button onClick={reset}>Reset</button> */}
+            <label htmlFor="email">Email</label>
+            <Field name="email" type="email" />
+            <ErrorMessage name="email" component={"span"} />
+            <label htmlFor="password">Password</label>
+            <Field name="password" type="password" />
+            <ErrorMessage name="password" component={"span"} />
+            <label htmlFor="repeatPassword">Repeat Password</label>
+            <Field name="repeatPassword" type="password" />
+            <ErrorMessage name="repeatPassword" component={"span"} />
+            <br />
+            <button type="submit">Submit</button>
+            <button type="button" onClick={() => formik.resetForm()}>
+              Reset
+            </button>
           </Form>
         )}
       </Formik>
