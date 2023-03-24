@@ -9,6 +9,7 @@ import FormikYupPage from "../03-forms/pages/FormikYupPage";
 import FormikComponents from "../03-forms/pages/FormikComponents";
 import FormikAbastraction from "../03-forms/pages/FormikAbstraction";
 import RegisterFormikPage from "../03-forms/pages/RegisterFormikPage";
+import DinamicForm from "../03-forms/pages/DinamicForm";
 
 type ReactElement = () => JSX.Element;
 
@@ -95,5 +96,11 @@ export const routes: Route[] = [
     path: "register-formik-page",
     Component: RegisterFormikPage,
     name: "Register Formik abstraction Page",
+  },
+  {
+    to: "/dinamic-form",
+    path: "dinamic-form",
+    Component: DinamicForm,
+    name: "Dinamic Form Page",
   },
 ];

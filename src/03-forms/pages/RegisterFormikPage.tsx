@@ -3,18 +3,6 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const RegisterFormikPage = () => {
-  const obj = {
-    name: "",
-    email: "",
-    password: "",
-    repeatPassword: "",
-  };
-
-  // const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  // };
-  // console.table(registerData);
-
   return (
     <div>
       <h1>RegisterFormikPage</h1>
