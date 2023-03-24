@@ -45,7 +45,7 @@ const RegisterFormikPage = () => {
             .oneOf([Yup.ref("password")], "Passwords no coincide"),
         })}
       >
-        {(formik) => (
+        {({ resetForm }) => (
           <Form>
             <label htmlFor="name">First Name</label>
             <Field name="name" type="text" />
@@ -61,7 +61,7 @@ const RegisterFormikPage = () => {
             <ErrorMessage name="repeatPassword" component={"span"} />
             <br />
             <button type="submit">Submit</button>
-            <button type="button" onClick={() => formik.resetForm()}>
+            <button type="button" onClick={() => resetForm()}>
               Reset
             </button>
           </Form>
