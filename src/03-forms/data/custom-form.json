@@ -2,15 +2,22 @@
   {
     "type": "input",
     "name": "firstName",
-    "placeholder": "armandev",
+    "placeholder": "Escribe tu nombre:",
     "label": "First Name:",
     "initialValue": ""
   },
   {
     "type": "input",
     "name": "lastName",
-    "placeholder": "perez",
+    "placeholder": "Escribe tu apellido:",
     "label": "Last Name:",
+    "initialValue": ""
+  },
+  {
+    "type": "email",
+    "name": "email",
+    "placeholder": "armando@gmail.com",
+    "label": "Escribe tu Email:",
     "initialValue": ""
   }
 ]

@@ -9,6 +9,8 @@ const DinamicForm = () => {
     initialValues[data.name] = data.initialValue;
   }
 
+  console.log(initialValues);
+
   return (
     <div>
       <h1>DinamicForm</h1>
