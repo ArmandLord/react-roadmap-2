@@ -1,6 +1,7 @@
 import dataForm from "../data/custom-form.json";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { Fragment } from "react";
+import * as Yup from "yup";
 
 const DinamicForm = () => {
   const initialValues: { [key: string]: any } = {};
@@ -16,6 +17,10 @@ const DinamicForm = () => {
       <h1>DinamicForm</h1>
       <Formik
         initialValues={initialValues}
+        validationSchema={Yup.object({
+          firstName: Yup.string(),
+          // [a.name] = a.schema
+        })}
         onSubmit={(values) => {
           console.log(values);
         }}
