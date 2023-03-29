@@ -2,6 +2,7 @@ import dataForm from "../data/custom-form.json";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { Fragment } from "react";
 import * as Yup from "yup";
+import { MyLabel } from "armex-design-system";
 
 const DinamicForm = () => {
   const initialValues: { [key: string]: any } = {};
@@ -15,6 +16,13 @@ const DinamicForm = () => {
   return (
     <div>
       <h1>DinamicForm</h1>
+      <br />
+      <MyLabel
+        label="prueba con exito"
+        size="h1"
+        color="primary"
+        allCaps={true}
+      />
       <Formik
         initialValues={initialValues}
         validationSchema={Yup.object({
